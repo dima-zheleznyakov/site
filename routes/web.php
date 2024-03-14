@@ -24,7 +24,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::group(['middleware' => 'admin'], function() {
     Route::get('/admin', function(){
-        return "admin panel";
+        return view('admin.index');
     });
 });
 
