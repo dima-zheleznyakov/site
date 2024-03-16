@@ -20,9 +20,31 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
+
+
+
+
+
+/** Admin panel */
+
 Route::group(['middleware' => 'admin'], function() {
     Route::get('/admin', function(){
         return view('admin.index');
+    })->name('admin.index');
+});
+
+Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function() {
+
+//    Route::get('', 'IndexController');
+
+    Route::group(['namespace' => 'Categories', 'prefix' => 'categories'], function() {
+        Route::get('', 'IndexController')->name('categories.index');
+        Route::get('create','CreateController')->name('categories.create');
+        Route::post('','StoreController')->name('categories.store');
+        Route::get('edit/{category}', 'EditController')->name('categories.edit');
+        Route::patch('update/{category}', 'UpdateController')->name('categories.update');
+        Route::delete('delete/{category}', 'DeleteController')->name('categories.delete');
     });
 });
+
 
