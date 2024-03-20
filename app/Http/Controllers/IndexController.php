@@ -2,12 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Category;
+use App\Models\Product;
+use App\Models\SubCategory;
 
 class IndexController extends Controller
 {
     public function index()
     {
-        return view('index');
+        $categories = Category::all();
+        $subCategories = SubCategory::all();
+        $products = Product::all();
+
+        return view('index', compact('categories', 'subCategories', 'products'));
     }
 }
