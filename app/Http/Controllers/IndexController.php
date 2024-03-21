@@ -10,10 +10,6 @@ class IndexController extends Controller
 {
     public function index()
     {
-        $categories = Category::all();
-        $subCategories = SubCategory::all();
-        $products = Product::all();
-
-        return view('index', compact('categories', 'subCategories', 'products'));
+        return view('index');
     }
 }

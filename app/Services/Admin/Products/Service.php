@@ -18,7 +18,7 @@ class Service
             // Перемещение файла в директорию public/pic/
             $file->move(public_path('pic/products'), $filename);
             // Возвращение пути к загруженному файлу или другого ответа
-            $data['images'] = public_path('pic/products/' . $filename);
+            $data['images'] = 'pic/products/' . $filename;
         }
 
         $product = Product::create($data);
@@ -33,7 +33,7 @@ class Service
             // Перемещение файла в директорию public/pic/
             $file->move(public_path('pic/products'), $filename);
             // Возвращение пути к загруженному файлу или другого ответа
-            $data['images'] = public_path('pic/products/' . $filename);
+            $data['images'] = 'pic/products/' . $filename;
         }
 
         $product->update($data);

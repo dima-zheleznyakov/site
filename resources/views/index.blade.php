@@ -183,119 +183,111 @@
             </div>
         </div>
     </section>
-    <section class="watched">
-        <div class="container">
-            <h2 class="title">👀 Вы недавно смотрели</h2>
-            <div class="row">
-                <div class="col-xxl-2 col-xl-3 col-lg-3 col-md-4 col-6">
-                    <div class="cart">
-                        <div class="top-info">
-                            <div class="discount"><span>-15%</span></div>
-                            <div class="favorites">
-                                <form action="#">
-                                    <button><img src="{{ asset('img/favorites.svg') }}" alt=""></button>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="wrapper-images">
-                            <div style="background-image: url('pic/cart1.jpg')" class="img"></div>
-                        </div>
-                        <h2 class="title">
-                            <a href="#">Картридж для HP</a>
-                        </h2>
-                        <div class="price">
-                            <div class="current-price">3 000 ₸</div>
-                            <div class="old-price">5 000 ₸</div>
-                        </div>
-                        <form action="#" class="basket">
-                            <button class="btn">В корзину</button>
-                        </form>
-                        <div class="stock">
-                            В наличии: 100+шт
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xxl-2 col-xl-3 col-lg-3 col-md-4 col-6">
-                    <div class="cart">
-                        <div class="top-info">
-                            <div class="discount"><span>-15%</span></div>
-                            <div class="favorites">
-                                <form action="#">
-                                    <button><img src="{{ asset('img/favorites.svg') }}" alt=""></button>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="wrapper-images">
-                            <div style="background-image: url('pic/cart1.jpg')" class="img"></div>
-                        </div>
-                        <h2 class="title">
-                            <a href="#">Картридж для HP</a>
-                        </h2>
-                        <div class="price">
-                            <div class="current-price">3 000 ₸</div>
-                            <div class="old-price">5 000 ₸</div>
-                        </div>
-                        <form action="#" class="basket">
-                            <button class="btn">В корзину</button>
-                        </form>
-                        <div class="stock">
-                            В наличии: 100+шт
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xxl-2 col-xl-3 col-lg-3 col-md-4 col-6">
-                    <div class="cart">
-                        <div class="top-info">
-                            <div class="discount"><span>-15%</span></div>
-                            <div class="favorites">
-                                <form action="#">
-                                    <button><img src="{{ asset('img/favorites.svg') }}" alt=""></button>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="wrapper-images">
-                            <div style="background-image: url('pic/cart1.jpg')" class="img"></div>
-                        </div>
-                        <h2 class="title">
-                            <a href="#">Картридж для HP</a>
-                        </h2>
-                        <div class="price">
-                            <div class="current-price">3 000 ₸</div>
-                            <div class="old-price">5 000 ₸</div>
-                        </div>
-                        <form action="#" class="basket">
-                            <button class="btn">В корзину</button>
-                        </form>
-                        <div class="stock">
-                            В наличии: 100+шт
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+
+{{--    <section class="watched">--}}
+{{--        <div class="container">--}}
+{{--            <h2 class="title">👀 Вы недавно смотрели</h2>--}}
+{{--            <div class="row">--}}
+{{--                <div class="col-xxl-2 col-xl-3 col-lg-3 col-md-4 col-6">--}}
+{{--                    <div class="cart">--}}
+{{--                        <div class="top-info">--}}
+{{--                            <div class="discount"><span>-15%</span></div>--}}
+{{--                            <div class="favorites">--}}
+{{--                                <form action="#">--}}
+{{--                                    <button><img src="{{ asset('img/favorites.svg') }}" alt=""></button>--}}
+{{--                                </form>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="wrapper-images">--}}
+{{--                            <div style="background-image: url('pic/cart1.jpg')" class="img"></div>--}}
+{{--                        </div>--}}
+{{--                        <h2 class="title">--}}
+{{--                            <a href="#">Картридж для HP</a>--}}
+{{--                        </h2>--}}
+{{--                        <div class="price">--}}
+{{--                            <div class="current-price">3 000 ₸</div>--}}
+{{--                            <div class="old-price">5 000 ₸</div>--}}
+{{--                        </div>--}}
+{{--                        <form action="#" class="basket">--}}
+{{--                            <button class="btn">В корзину</button>--}}
+{{--                        </form>--}}
+{{--                        <div class="stock">--}}
+{{--                            В наличии: 100+шт--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                <div class="col-xxl-2 col-xl-3 col-lg-3 col-md-4 col-6">--}}
+{{--                    <div class="cart">--}}
+{{--                        <div class="top-info">--}}
+{{--                            <div class="discount"><span>-15%</span></div>--}}
+{{--                            <div class="favorites">--}}
+{{--                                <form action="#">--}}
+{{--                                    <button><img src="{{ asset('img/favorites.svg') }}" alt=""></button>--}}
+{{--                                </form>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="wrapper-images">--}}
+{{--                            <div style="background-image: url('pic/cart1.jpg')" class="img"></div>--}}
+{{--                        </div>--}}
+{{--                        <h2 class="title">--}}
+{{--                            <a href="#">Картридж для HP</a>--}}
+{{--                        </h2>--}}
+{{--                        <div class="price">--}}
+{{--                            <div class="current-price">3 000 ₸</div>--}}
+{{--                            <div class="old-price">5 000 ₸</div>--}}
+{{--                        </div>--}}
+{{--                        <form action="#" class="basket">--}}
+{{--                            <button class="btn">В корзину</button>--}}
+{{--                        </form>--}}
+{{--                        <div class="stock">--}}
+{{--                            В наличии: 100+шт--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                <div class="col-xxl-2 col-xl-3 col-lg-3 col-md-4 col-6">--}}
+{{--                    <div class="cart">--}}
+{{--                        <div class="top-info">--}}
+{{--                            <div class="discount"><span>-15%</span></div>--}}
+{{--                            <div class="favorites">--}}
+{{--                                <form action="#">--}}
+{{--                                    <button><img src="{{ asset('img/favorites.svg') }}" alt=""></button>--}}
+{{--                                </form>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="wrapper-images">--}}
+{{--                            <div style="background-image: url('pic/cart1.jpg')" class="img"></div>--}}
+{{--                        </div>--}}
+{{--                        <h2 class="title">--}}
+{{--                            <a href="#">Картридж для HP</a>--}}
+{{--                        </h2>--}}
+{{--                        <div class="price">--}}
+{{--                            <div class="current-price">3 000 ₸</div>--}}
+{{--                            <div class="old-price">5 000 ₸</div>--}}
+{{--                        </div>--}}
+{{--                        <form action="#" class="basket">--}}
+{{--                            <button class="btn">В корзину</button>--}}
+{{--                        </form>--}}
+{{--                        <div class="stock">--}}
+{{--                            В наличии: 100+шт--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </section>--}}
+
     <section class="popular-category">
         <div class="container">
             <h2 class="title">📌 Популярные категории</h2>
             <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <a href="#" class="popular_item d-flex align-items-center flex-column">
-                        <span style="background-image: url('pic/popular.jpg')" class="popular_img"></span>
-                        <h2 class="popular_title">Картриджи</h2>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <a href="#" class="popular_item d-flex align-items-center flex-column">
-                        <span style="background-image: url('pic/slide1.jpg')" class="popular_img"></span>
-                        <h2 class="popular_title">Канцелярия</h2>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <a href="#" class="popular_item d-flex align-items-center flex-column">
-                        <span style="background-image: url('pic/cart1.jpg')" class="popular_img"></span>
-                        <h2 class="popular_title">Что то еще</h2>
-                    </a>
-                </div>
+                @foreach($categories as $category)
+                    <div class="col-lg-4 col-md-6">
+                        <a href="#" class="popular_item d-flex align-items-center flex-column">
+                            <span style="background-image: url('pic/popular.jpg')" class="popular_img"></span>
+                            <h2 class="popular_title">{{ $category->title }}</h2>
+                        </a>
+                    </div>
+                @endforeach
             </div>
         </div>
     </section>
@@ -303,10 +295,11 @@
         <div class="container">
             <h2 class="title">🔥 Лучшие предложения</h2>
             <div class="row">
+                @foreach($products as $product)
                 <div class="col-xxl-2 col-xl-3 col-lg-3 col-md-4 col-6">
                     <div class="cart">
                         <div class="top-info">
-                            <div class="discount"><span>-15%</span></div>
+                            <div class="discount"><span></span></div>
                             <div class="favorites">
                                 <form action="#">
                                     <button><img src="{{ asset('img/favorites.svg') }}" alt=""></button>
@@ -314,79 +307,26 @@
                             </div>
                         </div>
                         <div class="wrapper-images">
-                            <div style="background-image: url('pic/cart1.jpg')" class="img"></div>
+                            <div style="background-image: url('{{ $product->images }}')" class="img"></div>
                         </div>
                         <h2 class="title">
-                            <a href="#">Картридж для HP</a>
+                            <a href="product/edit/{{$product->id}}">
+                                {{ strlen($product->title)>27 ? substr($product->title, 0, 27) . '..' : $product->title}}
+                            </a>
                         </h2>
                         <div class="price">
-                            <div class="current-price">3 000 ₸</div>
-                            <div class="old-price">5 000 ₸</div>
+                            <div class="current-price">{{ $product->price }}</div>
+                            <div class="old-price">{{ $product->old_price }}</div>
                         </div>
                         <form action="#" class="basket">
                             <button class="btn">В корзину</button>
                         </form>
                         <div class="stock">
-                            В наличии: 100+шт
+                            В наличии: {{ $product->stock }}шт
                         </div>
                     </div>
                 </div>
-                <div class="col-xxl-2 col-xl-3 col-lg-3 col-md-4 col-6">
-                    <div class="cart">
-                        <div class="top-info">
-                            <div class="discount"><span>-15%</span></div>
-                            <div class="favorites">
-                                <form action="#">
-                                    <button><img src="{{ asset('img/favorites.svg') }}" alt=""></button>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="wrapper-images">
-                            <div style="background-image: url('pic/cart1.jpg')" class="img"></div>
-                        </div>
-                        <h2 class="title">
-                            <a href="#">Картридж для HP</a>
-                        </h2>
-                        <div class="price">
-                            <div class="current-price">3 000 ₸</div>
-                            <div class="old-price">5 000 ₸</div>
-                        </div>
-                        <form action="#" class="basket">
-                            <button class="btn">В корзину</button>
-                        </form>
-                        <div class="stock">
-                            В наличии: 100+шт
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xxl-2 col-xl-3 col-lg-3 col-md-4 col-6">
-                    <div class="cart">
-                        <div class="top-info">
-                            <div class="discount"><span>-15%</span></div>
-                            <div class="favorites">
-                                <form action="#">
-                                    <button><img src="{{ asset('img/favorites.svg') }}" alt=""></button>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="wrapper-images">
-                            <div style="background-image: url('pic/cart1.jpg')" class="img"></div>
-                        </div>
-                        <h2 class="title">
-                            <a href="#">Картридж для HP</a>
-                        </h2>
-                        <div class="price">
-                            <div class="current-price">3 000 ₸</div>
-                            <div class="old-price">5 000 ₸</div>
-                        </div>
-                        <form action="#" class="basket">
-                            <button class="btn">В корзину</button>
-                        </form>
-                        <div class="stock">
-                            В наличии: 100+шт
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>

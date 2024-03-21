@@ -29,9 +29,7 @@ Route::group(['middleware' => 'admin'], function() {
 });
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function() {
-
 //    Route::get('', 'IndexController');
-
     /** Category Admin */
     Route::group(['namespace' => 'Categories', 'prefix' => 'categories'], function() {
         Route::get('', 'IndexController')->name('categories.index');
@@ -61,7 +59,16 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function() {
         Route::patch('update/{product}', 'UpdateController')->name('products.update');
         Route::delete('delete/{product}', 'DeleteController')->name('products.delete');
     });
-
 });
 
+Route::group(['namespace' => 'Pages'], function() {
+
+    Route::group(['namespace' => 'Product', 'prefix' => 'product'], function() {
+        Route::get('edit/{product}', 'IndexController')->name('product.edit');
+    });
+    Route::group(['namespace' => 'Cart'], function () {
+        Route::get('cart', 'IndexController')->name('cart.index');
+    });
+
+});
 

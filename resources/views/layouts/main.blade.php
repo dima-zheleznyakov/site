@@ -73,16 +73,9 @@
     @include('includes.index.menu')
 </div>
 
-
-
 <div class="content">
-
     @yield('content')
-
 </div>
-
-
-
 
 <footer class="footer">
     <div class="container">

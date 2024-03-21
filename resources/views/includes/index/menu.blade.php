@@ -27,7 +27,7 @@
                                         <ul>
                                             @foreach($products as $product)
                                                 @if($product->sub_category_id === $subCategory->id)
-                                                    <li><a href="{{ $product->id }}">{{ $product->title }}</a></li>
+                                                    <li><a href="{{ $_SERVER['REQUEST_URI'] === "/" ? "product/edit/$product->id" : $product->id}}">{{ $product->title }}</a></li>
                                                 @endif
                                             @endforeach
                                         </ul>
