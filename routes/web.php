@@ -71,6 +71,7 @@ Route::group(['namespace' => 'Pages'], function() {
         Route::get('checkout', 'OrderController@checkout')->name('order.checkout');
         Route::post('add/{id}', 'OrderController@add')->where('id', '[0-9]+')->name('order.add');
         Route::post('delete', 'OrderController@delete')->name('order.delete');
+        Route::post('update', 'OrderController@update')->name('order.update');
     });
 
 });

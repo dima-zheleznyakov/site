@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
+
     public function index(Request $request)
     {
         $order_id = $request->cookie('order_id');
@@ -19,10 +20,12 @@ class OrderController extends Controller
             abort(404);
         }
     }
+
     public function checkout()
     {
 
     }
+
     public function add(Request $request, $id)
     {
         $order_id = $request->cookie('order_id');
@@ -44,6 +47,14 @@ class OrderController extends Controller
 
         return back()->withCookie(cookie('order_id', $order_id, 43200));
     }
+
+    public function update(Request $request)
+    {
+        $orderProduct = OrderProduct::where('product_id', $request->product_id)->first();
+        $orderProduct->update(['quantity' => $request->quantity]);
+        return redirect()->back();
+    }
+
     public function delete(Request $request)
     {
         $deletedIds = [];
@@ -55,9 +66,12 @@ class OrderController extends Controller
                     $deletedIds[] = $productId; // Собираем ID удаленных продуктов
                 }
             }
+            return redirect()->back();
+        } else {
+            return redirect()->back();
         }
 
         // Возвращаем ID удаленных продуктов
-        return response()->json(['deletedIds' => $deletedIds]);
+//        return response()->json(['deletedIds' => $deletedIds]);
     }
 }

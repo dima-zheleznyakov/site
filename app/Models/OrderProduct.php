@@ -10,4 +10,5 @@ class OrderProduct extends Model
     use HasFactory;
 
     protected $table = 'order_product';
+    protected $guarded = [];
 }
