@@ -37,7 +37,7 @@
                 </div>
 {{--                <div class="col-md-3">--}}
 {{--                    <div class="header-cards-laptop">--}}
-{{--                        <div class="cart">--}}
+{{--                        <div class="order">--}}
 {{--                            <div class="title_product_day">--}}
 {{--                                <span>Товар дня</span>--}}
 {{--                            </div>--}}
@@ -101,7 +101,7 @@
 {{--                        <span>Товар дня</span>--}}
 {{--                    </div>--}}
 {{--                    <div class="col-6">--}}
-{{--                        <div class="cart">--}}
+{{--                        <div class="order">--}}
 {{--                            <div class="top-info">--}}
 {{--                                <div class="discount"><span>-15%</span></div>--}}
 {{--                                <div class="favorites">--}}
@@ -129,7 +129,7 @@
 {{--                        </div>--}}
 {{--                    </div>--}}
 {{--                    <div class="col-6">--}}
-{{--                        <div class="cart">--}}
+{{--                        <div class="order">--}}
 {{--                            <div class="top-info">--}}
 {{--                                <div class="discount"><span>-15%</span></div>--}}
 {{--                                <div class="favorites">--}}
@@ -189,7 +189,7 @@
 {{--            <h2 class="title">👀 Вы недавно смотрели</h2>--}}
 {{--            <div class="row">--}}
 {{--                <div class="col-xxl-2 col-xl-3 col-lg-3 col-md-4 col-6">--}}
-{{--                    <div class="cart">--}}
+{{--                    <div class="order">--}}
 {{--                        <div class="top-info">--}}
 {{--                            <div class="discount"><span>-15%</span></div>--}}
 {{--                            <div class="favorites">--}}
@@ -217,7 +217,7 @@
 {{--                    </div>--}}
 {{--                </div>--}}
 {{--                <div class="col-xxl-2 col-xl-3 col-lg-3 col-md-4 col-6">--}}
-{{--                    <div class="cart">--}}
+{{--                    <div class="order">--}}
 {{--                        <div class="top-info">--}}
 {{--                            <div class="discount"><span>-15%</span></div>--}}
 {{--                            <div class="favorites">--}}
@@ -245,7 +245,7 @@
 {{--                    </div>--}}
 {{--                </div>--}}
 {{--                <div class="col-xxl-2 col-xl-3 col-lg-3 col-md-4 col-6">--}}
-{{--                    <div class="cart">--}}
+{{--                    <div class="order">--}}
 {{--                        <div class="top-info">--}}
 {{--                            <div class="discount"><span>-15%</span></div>--}}
 {{--                            <div class="favorites">--}}
@@ -295,6 +295,7 @@
         <div class="container">
             <h2 class="title">🔥 Лучшие предложения</h2>
             <div class="row">
+                <?php $k = 1; ?>
                 @foreach($products as $product)
                 <div class="col-xxl-2 col-xl-3 col-lg-3 col-md-4 col-6">
                     <div class="cart">
@@ -318,7 +319,9 @@
                             <div class="current-price">{{ $product->price }}</div>
                             <div class="old-price">{{ $product->old_price }}</div>
                         </div>
-                        <form action="#" class="basket">
+                        <form action="{{ route('order.add', ['id' => $product->id]) }}" method="post" class="basket">
+                            @csrf
+                            <input type="hidden" name="quantity" value="1">
                             <button class="btn">В корзину</button>
                         </form>
                         <div class="stock">
@@ -326,6 +329,10 @@
                         </div>
                     </div>
                 </div>
+                <?php $k++; ?>
+                @if($k > 6)
+                    @break
+                @endif
                 @endforeach
             </div>
         </div>

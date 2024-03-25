@@ -18,6 +18,9 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
     <link rel="stylesheet" href="{{ asset('css/media.css?v=1') }}">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 </head>
 <body>
 
@@ -54,7 +57,7 @@
                         <img  style="margin-bottom: 6px;"  src="{{ asset('img/like.png') }}" alt="Icon 1">
                         <span>Избранное</span>
                     </a>
-                    <a href="#" class="action-button">
+                    <a href="/order" class="action-button">
                         <img src="{{ asset('img/shop.png') }}" alt="Icon 2">
                         <span>Корзина</span>
                     </a>
@@ -183,7 +186,7 @@
 <script src="{{ asset('https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js') }}" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="{{ asset('js/bootstrap.js') }}" ></script>
 
-<script src="{{ asset('https://code.jquery.com/jquery-3.7.1.slim.min.js') }}" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+{{--<script src="{{ asset('https://code.jquery.com/jquery-3.7.1.slim.min.js') }}" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>--}}
 <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
 
 <script src="{{ asset('js/script.js') }}"></script>

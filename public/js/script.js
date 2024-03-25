@@ -70,3 +70,37 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const selectAllCheckbox = document.getElementById('selectAllCheckbox');
+    const individualCheckboxes = document.querySelectorAll('.individual-checkbox');
+    const deleteButton = document.getElementById('deleteButton');
+
+    selectAllCheckbox.addEventListener('change', function() {
+        individualCheckboxes.forEach(checkbox => {
+            checkbox.checked = this.checked;
+        });
+        updateDeleteButtonText();
+    });
+
+    individualCheckboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', function() {
+            if (!this.checked) {
+                selectAllCheckbox.checked = false;
+            } else if ([...individualCheckboxes].every(checkbox => checkbox.checked)) {
+                selectAllCheckbox.checked = true;
+            }
+            updateDeleteButtonText();
+        });
+    });
+
+    function updateDeleteButtonText() {
+        const selectedCount = [...individualCheckboxes].filter(checkbox => checkbox.checked).length;
+        deleteButton.textContent = `Удалить (${selectedCount})`;
+    }
+});
+
+
+
+

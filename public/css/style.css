@@ -377,17 +377,17 @@
 .cart .title a:hover{
     color: #FF0000;
 }
-.cart .price{
+.price{
     display: flex;
     align-items: center;
 }
-.cart .price .current-price{
+.price .current-price{
     color: #212427;
     font-size: 16px;
     font-weight: 600;
     margin-right: 7px;
 }
-.cart .price .old-price{
+.price .old-price{
     color: #8E979F;
     font-size: 14px;
     font-weight: 400;
@@ -756,4 +756,110 @@
     background-size: cover;
     background-repeat: no-repeat;
     margin-bottom: 4px;
+}
+.order .order-item-wrapper{
+    background: #fff;
+    border-radius: 10px;
+}
+.order .order-item{
+    display: flex;
+    align-items: center;
+    padding: 30px 15px 46px;
+    position: relative;
+}
+.order .order-item::after {
+    content: '';
+    display: block;
+    width: 97%;
+    height: 1px;
+    background: #8E979F;
+    position: absolute;
+    bottom: 0;
+    opacity: 0.5;
+}
+.order .order-img{
+    width: 100px;
+    height: 100px;
+    margin: 0 16px 0;
+    border-radius: 10px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+.order .title-order a{
+    text-decoration: none;
+    color: #464C53;
+}
+.order .order-info-cart{
+    height: 95px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.order-item .discount span{
+    display: inline-block;
+    background: #73BE6F;
+    font-weight: 600;
+    font-size: 11px;
+    color: #fff;
+    border-radius: 5px;
+    padding: 2px 7px 2px 7px;
+}
+.order .number{
+    width: 40px;
+    position: absolute;
+    right: 20px;
+    bottom: 15px;
+}
+.order .order-design{
+    padding: 30px 18px;
+}
+.order .order-design .amount-paid{}
+.order .order-design .amount-paid .old-price{
+    color: #8E979F;
+    font-size: 15px;
+    text-decoration: line-through;
+    text-align: right;
+    margin-bottom: 3px;
+}
+.order .order-design .amount-paid .price{
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+}
+.order .order-design .amount-paid .price .total-price{
+    font-size: 19px;
+    color: #FF0000;
+    font-weight: 600;
+}
+.order .order-design .btn{
+    padding: 7px 0;
+}
+.order-delete-wrapper{
+    display: flex;
+    justify-content: space-between;
+    padding: 25px 15px 25px;
+    position: relative;
+}
+.order-delete-wrapper::after {
+    content: '';
+    display: block;
+    width: 97%;
+    height: 1px;
+    background: #8E979F;
+    position: absolute;
+    bottom: 0;
+    opacity: 0.5;
+}
+.order-delete-wrapper button{
+    background: none;
+    border: none;
+    color: rgba(var(--bs-link-color-rgb), var(--bs-link-opacity, 1));
+}
+.order-delete-wrapper .form-check label{
+    font-size: 18px;
+}
+
+.order-item .price .current-price {
+    font-size: 18px;
 }
