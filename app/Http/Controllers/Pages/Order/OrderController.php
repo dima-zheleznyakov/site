@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Pages\Order;
 use App\Http\Controllers\Controller;
 use App\Models\Order;
 use App\Models\OrderProduct;
+use App\Services\Order\Service;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -26,7 +27,7 @@ class OrderController extends Controller
 
     }
 
-    public function add(Request $request, $id)
+    public function add(Request $request, $id, Service $service)
     {
         $order_id = $request->cookie('order_id');
         $quantity = $request->input('quantity');
@@ -45,7 +46,14 @@ class OrderController extends Controller
             $order->products()->attach($id, ['quantity' => $quantity]);
         }
 
-        return back()->withCookie(cookie('order_id', $order_id, 43200));
+        // Получаем общее количество товаров в корзине
+        $generalOrder = $service->getTotalQuantity($order_id);
+
+        // Создаем JSON-ответ с общим количеством товаров
+        $response = response()->json(['generalOrder' => $generalOrder]);
+
+        // Добавляем куки к ответу
+        return $response->cookie('order_id', $order_id, 43200);
     }
 
     public function update(Request $request)

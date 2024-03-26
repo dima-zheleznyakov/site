@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\OrderProduct;
 use App\Models\Product;
 use App\Models\SubCategory;
+use App\Services\Order\Service;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -26,7 +27,7 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(Service $service)
     {
 
         $categories = Category::all();
@@ -41,13 +42,7 @@ class AppServiceProvider extends ServiceProvider
 
         if (isset($_COOKIE['order_id'])){
             $orderId = $_COOKIE['order_id'];
-            $orderProducts = OrderProduct::where('order_id', $orderId)->get();
-
-            $generalOrder = 0;
-            foreach($orderProducts as $orderProduct) {
-                $generalOrder += $orderProduct->quantity;
-            }
-
+            $generalOrder = $service->getTotalQuantity($orderId);
             View::share('generalOrder', $generalOrder);
         }
 

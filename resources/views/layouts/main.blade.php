@@ -58,11 +58,13 @@
                         <span>Избранное</span>
                     </a>
                     <a href="/order" class="action-button">
-                        @if($generalOrder > 0)
-                            <span id="generalOrder" class="general-order number-quantity-menu">
-                                {{ $generalOrder }}
-                            </span>
-                        @endif
+                        <div class="cart-info">
+                            @if($generalOrder > 0)
+                                <span id="generalOrder" class="general-order number-quantity-menu">
+                                    {{ $generalOrder }}
+                                </span>
+                            @endif
+                        </div>
                         <img src="{{ asset('img/shop.png') }}" alt="Icon 2">
                         <span>Корзина</span>
                     </a>
@@ -202,9 +204,21 @@
                 type: 'POST',
                 data: formData,
                 success: function(response) {
-                    // Здесь можно добавить код для обработки успешного ответа от сервера, если это необходимо
                     alert('Товар добавлен в корзину!');
                     console.log(response);
+
+                    // Проверяем, существует ли элемент для отображения количества
+                    var $generalOrder = $('#generalOrder');
+                    if ($generalOrder.length === 0) {
+                        // Если элемент не найден, создаем его
+                        $generalOrder = $('<span id="generalOrder" class="general-order number-quantity-menu"></span>');
+
+                        // Добавляем созданный элемент в контейнер .cart-info
+                        $('.cart-info').append($generalOrder);
+                    }
+
+                    // Обновляем количество в элементе
+                    $generalOrder.text(response.generalOrder);
                 },
                 error: function(xhr, status, error) {
                     // Здесь можно добавить код для обработки ошибки, если это необходимо

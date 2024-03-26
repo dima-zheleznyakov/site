@@ -38,8 +38,10 @@
                                 {{ $product->old_price }}
                             </div>
                         </div>
-                        <form action="#">
-                            <button class="btn" type="submit">Добавить в корзину</button>
+                        <form id="basketForm" action="{{ route('order.add', ['id' => $product->id]) }}" method="post" class="basket">
+                            @csrf
+                            <input type="hidden" name="quantity" value="1">
+                            <button type="submit" class="btn">Добавить в корзину</button>
                         </form>
                         <div class="order-info">
                             <div class="pickup order-item">Самовывоз: <span> 20 марта</span></div>
