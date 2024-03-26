@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Category;
+use App\Models\OrderProduct;
 use App\Models\Product;
 use App\Models\SubCategory;
 use Illuminate\Support\Facades\View;
@@ -27,6 +28,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+
         $categories = Category::all();
         $subCategories = SubCategory::all();
         $products = Product::all();
@@ -34,5 +36,20 @@ class AppServiceProvider extends ServiceProvider
         View::share('categories', $categories);
         View::share('subCategories', $subCategories);
         View::share('products', $products);
+
+
+
+        if (isset($_COOKIE['order_id'])){
+            $orderId = $_COOKIE['order_id'];
+            $orderProducts = OrderProduct::where('order_id', $orderId)->get();
+
+            $generalOrder = 0;
+            foreach($orderProducts as $orderProduct) {
+                $generalOrder += $orderProduct->quantity;
+            }
+
+            View::share('generalOrder', $generalOrder);
+        }
+
     }
 }

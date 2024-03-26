@@ -58,6 +58,11 @@
                         <span>Избранное</span>
                     </a>
                     <a href="/order" class="action-button">
+                        @if($generalOrder > 0)
+                            <span id="generalOrder" class="general-order number-quantity-menu">
+                                {{ $generalOrder }}
+                            </span>
+                        @endif
                         <img src="{{ asset('img/shop.png') }}" alt="Icon 2">
                         <span>Корзина</span>
                     </a>
@@ -181,6 +186,35 @@
     </div>
 </div>
 
+
+
+<script>
+    $(document).ready(function() {
+        $('.basket .btn').click(function(event) {
+            event.preventDefault(); // Предотвращаем стандартное поведение кнопки
+
+            // Получаем данные из формы
+            var formData = $(this).closest('form').serialize();
+
+            // Отправляем AJAX запрос
+            $.ajax({
+                url: $(this).closest('form').attr('action'),
+                type: 'POST',
+                data: formData,
+                success: function(response) {
+                    // Здесь можно добавить код для обработки успешного ответа от сервера, если это необходимо
+                    alert('Товар добавлен в корзину!');
+                    console.log(response);
+                },
+                error: function(xhr, status, error) {
+                    // Здесь можно добавить код для обработки ошибки, если это необходимо
+                    alert('Произошла ошибка при добавлении товара в корзину!');
+                    console.error(xhr.responseText);
+                }
+            });
+        });
+    });
+</script>
 
 
 <script src="{{ asset('https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js') }}" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>

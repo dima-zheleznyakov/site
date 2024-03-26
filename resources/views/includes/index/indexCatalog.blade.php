@@ -43,10 +43,10 @@
                                             <div class="current-price">{{ $product->price }}</div>
                                             <div class="old-price">{{ $product->old_price }}</div>
                                         </div>
-                                        <form action="{{ route('order.add', ['id' => $product->id]) }}" method="post" class="basket">
+                                        <form id="basketForm" action="{{ route('order.add', ['id' => $product->id]) }}" method="post" class="basket">
                                             @csrf
                                             <input type="hidden" name="quantity" value="1">
-                                            <button class="btn">В корзину</button>
+                                            <button type="submit" class="btn">В корзину</button>
                                         </form>
                                         <div class="stock">
                                             В наличии: {{ $product->stock }}шт
@@ -67,3 +67,4 @@
         @endforeach
     </div>
 </div>
+
