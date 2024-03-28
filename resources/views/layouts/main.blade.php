@@ -23,7 +23,6 @@
 
 </head>
 <body>
-
 <header class="header d-flex align-items-center">
     <div class="container">
         <div class="row align-items-center">
@@ -59,11 +58,13 @@
                     </a>
                     <a href="/order" class="action-button">
                         <div class="cart-info">
-                            @if($generalOrder > 0)
-                                <span id="generalOrder" class="general-order number-quantity-menu">
-                                    {{ $generalOrder }}
-                                </span>
-                            @endif
+                            <span class="general-order number-quantity-menu" style="@isset($generalOrder){{ $generalOrder > 0 ? '' : 'display: none;' }}@else display: none; @endisset">
+                                @isset($generalOrder)
+                                    @if($generalOrder > 0)
+                                        {{ $generalOrder }}
+                                    @endif
+                                @endisset
+                            </span>
                         </div>
                         <img src="{{ asset('img/shop.png') }}" alt="Icon 2">
                         <span>Корзина</span>
@@ -154,40 +155,8 @@
 
 
 <div class="menu_mobile">
-    <div class="menu_mobile_wrapper">
-        <div class="menu_mobile_item">
-            <a href="#">
-                <img src="{{ asset('img/menu1.png') }}" alt="">
-                <span>Главная</span>
-            </a>
-        </div>
-        <div class="menu_mobile_item">
-            <a href="#">
-                <img src="{{ asset('img/menu2.png') }}" alt="">
-                <span>Каталог</span>
-            </a>
-        </div>
-        <div class="menu_mobile_item">
-            <a href="#">
-                <img src="{{ asset('img/menu3.png') }}" alt="">
-                <span>Избранное</span>
-            </a>
-        </div>
-        <div class="menu_mobile_item">
-            <a href="#">
-                <img src="{{ asset('img/menu4.png') }}" alt="">
-                <span>Корзина</span>
-            </a>
-        </div>
-        <div class="menu_mobile_item">
-            <a href="#">
-                <img src="{{ asset('img/menu5.png') }}" alt="">
-                <span>Аккаунт</span>
-            </a>
-        </div>
-    </div>
+    @include('includes.index.menuMobile')
 </div>
-
 
 
 <script>
@@ -207,18 +176,14 @@
                     alert('Товар добавлен в корзину!');
                     console.log(response);
 
-                    // Проверяем, существует ли элемент для отображения количества
-                    var $generalOrder = $('#generalOrder');
-                    if ($generalOrder.length === 0) {
-                        // Если элемент не найден, создаем его
-                        $generalOrder = $('<span id="generalOrder" class="general-order number-quantity-menu"></span>');
-
-                        // Добавляем созданный элемент в контейнер .cart-info
-                        $('.cart-info').append($generalOrder);
-                    }
-
-                    // Обновляем количество в элементе
+                    // Обновляем количество в элементе и показываем его, если скрыт
+                    var $generalOrder = $('.general-order');
                     $generalOrder.text(response.generalOrder);
+                    if (response.generalOrder > 0) {
+                        $generalOrder.show(); // Показываем элементы, если они были скрыты
+                    } else {
+                        $generalOrder.hide(); // Скрываем элементы, если в корзине нет товаров
+                    }
                 },
                 error: function(xhr, status, error) {
                     // Здесь можно добавить код для обработки ошибки, если это необходимо
