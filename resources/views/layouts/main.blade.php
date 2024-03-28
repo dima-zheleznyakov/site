@@ -52,7 +52,7 @@
             </div>
             <div class="col-lg-3 col-md-4 d-md-block d-none">
                 <div class="action-buttons d-flex justify-content-between">
-                    <a href="#" class="action-button">
+                    <a href="{{ route('favorite.index') }}" class="action-button">
                         <img  style="margin-bottom: 6px;"  src="{{ asset('img/like.png') }}" alt="Icon 1">
                         <span>Избранное</span>
                     </a>

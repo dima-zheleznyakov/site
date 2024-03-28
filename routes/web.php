@@ -66,12 +66,17 @@ Route::group(['namespace' => 'Pages'], function() {
     Route::group(['namespace' => 'Product', 'prefix' => 'product'], function() {
         Route::get('edit/{product}', 'IndexController')->name('product.edit');
     });
-    Route::group(['namespace' => 'Order', 'prefix' => 'order'], function () {
+
+    Route::group(['prefix' => 'order'], function () {
         Route::get('', 'OrderController@index')->name('order.index');
         Route::get('checkout', 'OrderController@checkout')->name('order.checkout');
         Route::post('add/{id}', 'OrderController@add')->where('id', '[0-9]+')->name('order.add');
         Route::post('delete', 'OrderController@delete')->name('order.delete');
         Route::post('update', 'OrderController@update')->name('order.update');
+    });
+
+    Route::group(['prefix' => 'favorite'], function(){
+        Route::get('', 'FavoriteController@index')->name('favorite.index');
     });
 
 });

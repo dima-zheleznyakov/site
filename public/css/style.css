@@ -56,9 +56,12 @@
 .menu_wrapper.active {
     right: 0;
 }
+.bg-wrapper{
+    background: #fff;
+    border-radius: 10px;
+}
 .cart-info{
     position: relative;
-
 }
 .number-quantity-menu {
     position: absolute;
@@ -645,6 +648,7 @@
 .menu_mobile{
     display: none;
     position: fixed;
+    z-index: 1000;
     bottom: 0;
     background: #fff;
     width: 100%;
@@ -776,10 +780,7 @@
     background-repeat: no-repeat;
     margin-bottom: 4px;
 }
-.order .order-item-wrapper{
-    background: #fff;
-    border-radius: 10px;
-}
+
 .order .order-item{
     display: flex;
     align-items: center;
@@ -881,4 +882,10 @@
 
 .order-item .price .current-price {
     font-size: 18px;
+}
+.favorites .favorite-wrapper{
+    padding: 20px;
+}
+.favorites .favorite-wrapper .cart {
+    border: solid 1px #D2D2D2;
 }

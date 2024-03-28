@@ -1,21 +1,15 @@
 @extends('layouts.main')
 @section('content')
-
-
-
-
-
     <section class="order">
         <div class="container">
             @if (count($products))
             <?php
             $orderCost = 0;
             ?>
-
                 <h2 class="title">Корзина</h2>
                 <div class="row">
                     <div class="col-md-9">
-                        <div class="order-item-wrapper">
+                        <div class="order-item-wrapper bg-wrapper">
                             <form  id="deleteForm" action="{{ route('order.delete') }}" method="post" >
                                 @csrf
                                 <div class="order-delete-wrapper">
@@ -63,7 +57,7 @@
                         </div>
                     </div>
                     <div class="col-md-3">
-                        <div class="order-item-wrapper">
+                        <div class="order-item-wrapper bg-wrapper">
                             <div class="order-design">
                                 <div class="amount-paid">
                                     {{--                                    <div class="old-price">20000₸</div>--}}
@@ -81,10 +75,6 @@
         @endif
         </div>
     </section>
-
-
-
-
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -111,34 +101,5 @@
             // Инициализация общей стоимости заказа
             updateTotalPrice();
         });
-
-
-        {{--$(document).ready(function() {--}}
-        {{--    $('#deleteForm').on('submit', function(e) {--}}
-        {{--        e.preventDefault(); // Предотвращаем стандартную отправку формы--}}
-        {{--        var formData = $(this).serialize(); // Сериализуем данные из формы--}}
-
-        {{--        $.ajax({--}}
-        {{--            type: 'POST',--}}
-        {{--            url: "{{ route('order.delete') }}", // Укажите правильный URL--}}
-        {{--            data: formData,--}}
-        {{--            success: function(response) {--}}
-        {{--                // Удаляем блоки order-item из DOM--}}
-        {{--                response.deletedIds.forEach(function(id) {--}}
-        {{--                    $('#' + id).remove();--}}
-        {{--                });--}}
-
-        {{--                // После удаления элементов можно обновить интерфейс,--}}
-        {{--                // например, показать сообщение об успешном удалении--}}
-        {{--                // или обновить счетчик элементов, если он есть--}}
-        {{--            },--}}
-        {{--            error: function(error) {--}}
-        {{--                console.log(error); // Обработка ошибки--}}
-        {{--                // Здесь можно показать сообщение об ошибке--}}
-        {{--            }--}}
-        {{--        });--}}
-        {{--    });--}}
-        {{--});--}}
     </script>
-
 @endsection
