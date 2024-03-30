@@ -40,10 +40,10 @@ class AppServiceProvider extends ServiceProvider
 
 
 
-        if (isset($_COOKIE['order_id'])){
-            $orderId = $_COOKIE['order_id'];
-            $generalOrder = $service->getTotalQuantity($orderId);
-            View::share('generalOrder', $generalOrder);
+        if (isset($_COOKIE['user_data_id'])){
+            $user_data_id = $_COOKIE['user_data_id'];
+            $generalUserData = $service->getTotalQuantity($user_data_id);
+            View::share('generalUserData', $generalUserData);
         }
 
     }

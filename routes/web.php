@@ -77,6 +77,7 @@ Route::group(['namespace' => 'Pages'], function() {
 
     Route::group(['prefix' => 'favorite'], function(){
         Route::get('', 'FavoriteController@index')->name('favorite.index');
+        Route::post('add/{id}', 'FavoriteController@add')->name('favorite.add');
     });
 
 });

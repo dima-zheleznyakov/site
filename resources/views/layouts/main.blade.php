@@ -58,10 +58,10 @@
                     </a>
                     <a href="/order" class="action-button">
                         <div class="cart-info">
-                            <span class="general-order number-quantity-menu" style="@isset($generalOrder){{ $generalOrder > 0 ? '' : 'display: none;' }}@else display: none; @endisset">
-                                @isset($generalOrder)
-                                    @if($generalOrder > 0)
-                                        {{ $generalOrder }}
+                            <span class="general-user-data number-quantity-menu" style="@isset($generalUserData){{ $generalUserData > 0 ? '' : 'display: none;' }}@else display: none; @endisset">
+                                @isset($generalUserData)
+                                    @if($generalUserData > 0)
+                                        {{ $generalUserData }}
                                     @endif
                                 @endisset
                             </span>
@@ -177,12 +177,12 @@
                     console.log(response);
 
                     // Обновляем количество в элементе и показываем его, если скрыт
-                    var $generalOrder = $('.general-order');
-                    $generalOrder.text(response.generalOrder);
-                    if (response.generalOrder > 0) {
-                        $generalOrder.show(); // Показываем элементы, если они были скрыты
+                    var $generalUserData = $('.general-user-data');
+                    $generalUserData.text(response.generalUserData);
+                    if (response.generalUserData > 0) {
+                        $generalUserData.show(); // Показываем элементы, если они были скрыты
                     } else {
-                        $generalOrder.hide(); // Скрываем элементы, если в корзине нет товаров
+                        $generalUserData.hide(); // Скрываем элементы, если в корзине нет товаров
                     }
                 },
                 error: function(xhr, status, error) {

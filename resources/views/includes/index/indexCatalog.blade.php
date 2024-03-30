@@ -26,8 +26,10 @@
                                         <div class="top-info">
                                             <div class="discount"><span></span></div>
                                             <div class="favorites">
-                                                <form action="#">
-                                                    <button><img src="{{ asset('img/favorites.svg') }}" alt=""></button>
+                                                <form id="" action="{{ route('favorite.add', ['id' => $product->id]) }}" method="post" class="">
+                                                    @csrf
+                                                    <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                                    <button type="submit"><img src="{{ asset('img/favorites.svg') }}" alt=""></button>
                                                 </form>
                                             </div>
                                         </div>

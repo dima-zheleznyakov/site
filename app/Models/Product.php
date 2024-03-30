@@ -11,6 +11,6 @@ class Product extends Model
     protected $guarded = [];
 
     public function orders(){
-        return $this->belongsToMany(Order::class)->withPivot('quantity');
+        return $this->belongsToMany(UserData::class)->withPivot('quantity');
     }
 }

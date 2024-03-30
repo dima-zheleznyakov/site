@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\Pages;
 
 use App\Http\Controllers\Controller;
-use App\Models\Order;
 use App\Models\OrderProduct;
+use App\Models\UserData;
+use App\Models\Product;
 use App\Services\Order\Service;
 use Illuminate\Http\Request;
 
@@ -13,9 +14,9 @@ class OrderController extends Controller
 
     public function index(Request $request)
     {
-        $order_id = $request->cookie('order_id');
-        if (!empty($order_id)) {
-            $products = Order::findOrFail($order_id)->products;
+        $user_data_id = $request->cookie('user_data_id');
+        if (!empty($user_data_id)) {
+            $products = UserData::findOrFail($user_data_id)->products;
             return view('pages.order.index', compact('products'));
         } else {
             abort(404);
@@ -29,37 +30,37 @@ class OrderController extends Controller
 
     public function add(Request $request, $id, Service $service)
     {
-        $order_id = $request->cookie('order_id');
+        $user_data_id = $request->cookie('user_data_id');
         $quantity = $request->input('quantity');
-        if($order_id === null) {
-            $order = Order::create();
-            $order_id = $order->id;
+        if($user_data_id === null) {
+            $userData = UserData::create();
+            $user_data_id = $userData->id;
         } else {
-            $order = Order::findOrFail($order_id);
-            $order->touch();
+            $userData = UserData::findOrFail($user_data_id);
+            $userData->touch();
         }
-        if($order->products->contains($id)) {
-            $pivotRow = $order->products()->where('product_id', $id)->first()->pivot;
+        if($userData->products->contains($id)) {
+            $pivotRow = $userData->products()->where('product_id', $id)->first()->pivot;
             $quantity = $pivotRow->quantity + $quantity;
             $pivotRow->update(['quantity' => $quantity]);
         } else {
-            $order->products()->attach($id, ['quantity' => $quantity]);
+            $userData->products()->attach($id, ['quantity' => $quantity]);
         }
 
         // Получаем общее количество товаров в корзине
-        $generalOrder = $service->getTotalQuantity($order_id);
+        $generalUserData = $service->getTotalQuantity($user_data_id);
 
         // Создаем JSON-ответ с общим количеством товаров
-        $response = response()->json(['generalOrder' => $generalOrder]);
+        $response = response()->json(['generalUserData' => $generalUserData]);
 
         // Добавляем куки к ответу
-        return $response->cookie('order_id', $order_id, 43200);
+        return $response->cookie('user_data_id', $user_data_id, 43200);
     }
 
     public function update(Request $request)
     {
-        $orderProduct = OrderProduct::where('product_id', $request->product_id)->first();
-        $orderProduct->update(['quantity' => $request->quantity]);
+        $userDataProduct = OrderProduct::where('product_id', $request->product_id)->first();
+        $userDataProduct->update(['quantity' => $request->quantity]);
         return redirect()->back();
     }
 
@@ -68,9 +69,9 @@ class OrderController extends Controller
         $deletedIds = [];
         if (isset($request->delete)) {
             foreach ($request->delete as $productId) {
-                $orderProduct = OrderProduct::where('product_id', $productId)->first();
-                if ($orderProduct) {
-                    $orderProduct->delete();
+                $userDataProduct = OrderProduct::where('product_id', $productId)->first();
+                if ($userDataProduct) {
+                    $userDataProduct->delete();
                     $deletedIds[] = $productId; // Собираем ID удаленных продуктов
                 }
             }

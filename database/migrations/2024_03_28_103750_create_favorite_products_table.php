@@ -15,11 +15,12 @@ return new class extends Migration
     {
         Schema::create('favorite_products', function (Blueprint $table) {
             $table->id();
-
-            $table->unsignedBigInteger('')
-
+            $table->unsignedBigInteger('user_data_id');
+            $table->unsignedBigInteger('product_id');
+            $table->foreign('user_data_id')->references('id')->on('user_data')->cascadeOnDelete();
+            $table->foreign('product_id')->references('id')->on('products')->cascadeOnDelete();
             $table->timestamps();
-            $table->softDeletes()
+            $table->softDeletes();
         });
     }
 

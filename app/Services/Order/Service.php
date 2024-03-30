@@ -8,9 +8,9 @@ use App\Models\OrderProduct;
 
 class Service
 {
-    public function getTotalQuantity($orderId)
+    public function getTotalQuantity($user_data_id)
     {
-        $orderProducts = OrderProduct::where('order_id', $orderId)->get();
+        $orderProducts = OrderProduct::where('user_data_id', $user_data_id)->get();
         $totalQuantity = 0;
 
         foreach ($orderProducts as $orderProduct) {
